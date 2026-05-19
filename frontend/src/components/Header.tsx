@@ -1,5 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import logoImg from '../assets/logo.png';
 
 const Header: React.FC = () => {
   return (
@@ -15,14 +16,28 @@ const Header: React.FC = () => {
       zIndex: 1000,
       borderBottom: '1px solid #222'
     }}>
-      {/* Logo o Título */}
-      <div style={{ 
-        fontWeight: '900', 
-        fontSize: '1.5rem', 
-        color: '#ffffff',
-        letterSpacing: '1px' 
-      }}>
-        EXPO TEXTIL <span style={{ color: '#ff0000' }}>2026</span>
+      {/* Logo y Título */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+        {/* Logo */}
+        <img 
+          src={logoImg} 
+          alt="Logo Expo Textil 2026" 
+          style={{
+            width: '45px',
+            height: '45px',
+            objectFit: 'contain',
+            borderRadius: '4px'
+          }}
+        />
+        
+        <div style={{ 
+          fontWeight: '900', 
+          fontSize: '1.5rem', 
+          color: '#ffffff',
+          letterSpacing: '1px' 
+        }}>
+          EXPO TEXTIL <span style={{ color: '#ff0000' }}>2026</span>
+        </div>
       </div>
 
       {/* Navegación */}

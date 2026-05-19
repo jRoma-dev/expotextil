@@ -82,7 +82,7 @@ const Home: React.FC = () => {
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            Instagram Oficial
+            Instagram oficial
           </a>
         </div>
 
@@ -133,21 +133,36 @@ const Home: React.FC = () => {
           <div className="resp-full-width" style={{ backgroundColor: '#ffffff', padding: '2.5rem', borderRadius: '16px', flex: '1', minWidth: '300px', textAlign: 'left', borderTop: '4px solid #ff0000', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
             <h2 style={{ color: '#333333', marginTop: 0, fontSize: '1.5rem' }}>¿Qué es la Expo?</h2>
             <p style={{ color: '#666666', lineHeight: '1.6' }}>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit commodo nam, gravida class dictum penatibus arcu conubia libero bibendum at sociosqu, euismod aptent nisl posuere in dapibus suscipit ultricies. Eget molestie iaculis vehicula facilisis placerat cursus, nam vel orci varius a faucibus in, diam elementum malesuada nisi semper. Ut laoreet facilisi malesuada interdum porttitor ultrices nunc conubia egestas, maecenas congue mollis id feugiat auctor mattis lacus quis, sociis libero faucibus ante cursus netus natoque aliquet.
+              La Expo Textil, Gráfica y Creativa Concordia 2026 es un evento pensado para reunir a emprendedores, empresas, diseñadores, talleres, marcas, proveedores y profesionales de las industrias textiles, gráficas y creativas en un solo espacio de conexión, negocios y capacitación.
+El objetivo de la expo es impulsar el crecimiento del ecosistema productivo y creativo de la región, generando oportunidades para:
+Mostrar productos, servicios y marcas.
+Conectar expositores con potenciales clientes y proveedores.
+Capacitar mediante charlas, workshops y demostraciones en vivo.
+Promover innovación, diseño, impresión, sublimación, confección y tecnología.
+Crear alianzas comerciales y fortalecer el sector emprendedor.
             </p>
           </div>
 
           <div className="resp-full-width" style={{ backgroundColor: '#ffffff', padding: '2.5rem', borderRadius: '16px', flex: '1', minWidth: '300px', textAlign: 'left', borderTop: '4px solid #ff0000', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
             <h2 style={{ color: '#333333', marginTop: 0, fontSize: '1.5rem' }}>¿Por qué participar?</h2>
             <p style={{ color: '#666666', lineHeight: '1.6' }}>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit commodo nam, gravida class dictum penatibus arcu conubia libero bibendum at sociosqu, euismod aptent nisl posuere in dapibus suscipit ultricies. Eget molestie iaculis vehicula facilisis placerat cursus, nam vel orci varius a faucibus in, diam elementum malesuada nisi semper. Ut laoreet facilisi malesuada interdum porttitor ultrices nunc conubia egestas, maecenas congue mollis id feugiat auctor mattis lacus quis, sociis libero faucibus ante cursus netus natoque aliquet.
+              ¿Por qué inscribirse en la Expo Textil, Gráfica y Creativa Concordia 2026?
+Potenciá tu marca frente a cientos de visitantes y profesionales del sector.
+Generá nuevas oportunidades de ventas y contactos comerciales.
+Mostrá tus productos, servicios e innovaciones en un espacio profesional.
+Conectate con emprendedores, empresas y proveedores de toda la región.
+Participá de capacitaciones, charlas y demostraciones en vivo.
+Posicioná tu negocio dentro de una de las exposiciones creativas y productivas más importantes de la región.
+Expandí tu red de clientes y alianzas estratégicas.
+Formá parte del crecimiento del ecosistema textil, gráfico y creativo.
+La expo es una oportunidad ideal para emprendedores, marcas, talleres, diseñadores, imprentas, empresas de sublimación, confección, personalización y tecnología creativa que buscan crecer, innovar y generar nuevas conexiones.
             </p>
           </div>
 
           <div style={{ backgroundColor: '#ffffff', padding: '2.5rem', borderRadius: '16px', flex: '1', minWidth: '300px', textAlign: 'left', borderTop: '4px solid #ff0000', boxShadow: '0 10px 20px rgba(0,0,0,0.05)' }}>
             <h2 style={{ color: '#333333', marginTop: 0, fontSize: '1.5rem' }}>Rubros que participan</h2>
             <p style={{ color: '#666666', lineHeight: '1.6' }}>
-              Lorem ipsum dolor sit amet consectetur adipiscing elit commodo nam, gravida class dictum penatibus arcu conubia libero bibendum at sociosqu, euismod aptent nisl posuere in dapibus suscipit ultricies. Eget molestie iaculis vehicula facilisis placerat cursus, nam vel orci varius a faucibus in, diam elementum malesuada nisi semper. Ut laoreet facilisi malesuada interdum porttitor ultrices nunc conubia egestas, maecenas congue mollis id feugiat auctor mattis lacus quis, sociis libero faucibus ante cursus netus natoque aliquet.
+              Lorem ipsum dolor sit amet consectetur adipiscing elit commodo nam.
             </p>
           </div>
         </div>

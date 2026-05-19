@@ -63,56 +63,62 @@ const Registro: React.FC = () => {
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1.20rem' }}>
 
             {/* Empresa */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'left' }}>
+              <label htmlFor="empresa" style={{ fontWeight: '600', color: '#555', fontSize: '1rem' }}>Nombre de la empresa *</label>
               <input
+                id="empresa"
                 type="text"
                 name="empresa"
-                placeholder="Nombre de la empresa"
                 required
                 style={{ width: '100%', padding: '16px 20px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1.05rem', boxSizing: 'border-box', backgroundColor: '#f9f9f9' }}
               />
             </div>
 
             {/* Nombre */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'left' }}>
+              <label htmlFor="nombre" style={{ fontWeight: '600', color: '#555', fontSize: '1rem' }}>Nombre y apellido del responsable *</label>
               <input
+                id="nombre"
                 type="text"
                 name="nombre"
-                placeholder="Nombre y apellido del responsable"
                 required
                 style={{ width: '100%', padding: '16px 20px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1.05rem', boxSizing: 'border-box', backgroundColor: '#f9f9f9' }}
               />
             </div>
 
             {/* Correo */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'left' }}>
+              <label htmlFor="correo" style={{ fontWeight: '600', color: '#555', fontSize: '1rem' }}>Correo electrónico *</label>
               <input
+                id="correo"
                 type="email"
                 name="correo"
-                placeholder="Correo electrónico"
                 required
                 style={{ width: '100%', padding: '16px 20px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1.05rem', boxSizing: 'border-box', backgroundColor: '#f9f9f9' }}
               />
             </div>
 
             {/* Teléfono */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'left' }}>
+              <label htmlFor="telefono" style={{ fontWeight: '600', color: '#555', fontSize: '1rem' }}>Número de WhatsApp *</label>
               <input
+                id="telefono"
                 type="tel"
                 name="telefono"
-                placeholder="Número de WhatsApp"
                 required
                 style={{ width: '100%', padding: '16px 20px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1.05rem', boxSizing: 'border-box', backgroundColor: '#f9f9f9' }}
               />
             </div>
 
             {/* Tipo Stand */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'left' }}>
+              <label htmlFor="tipo_stand" style={{ fontWeight: '600', color: '#555', fontSize: '1rem' }}>Tipo de stand *</label>
               <select
+                id="tipo_stand"
                 name="tipo_stand"
                 required
                 defaultValue=""
-                style={{ width: '100%', padding: '16px 20px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1.05rem', boxSizing: 'border-box', backgroundColor: '#f9f9f9', color: '#555' }}
+                style={{ width: '100%', padding: '16px 20px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1.05rem', boxSizing: 'border-box', backgroundColor: '#f9f9f9', color: '#333' }}
               >
                 <option value="" disabled>Seleccionar tipo de stand</option>
                 <option value="1">Stand Categoría A (3x3m)</option>
@@ -122,10 +128,12 @@ const Registro: React.FC = () => {
             </div>
 
             {/* Comentarios */}
-            <div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem', textAlign: 'left' }}>
+              <label htmlFor="comentarios" style={{ fontWeight: '600', color: '#555', fontSize: '1rem' }}>¿Tienes algún requerimiento especial para tu stand?</label>
               <textarea
+                id="comentarios"
                 name="comentarios"
-                placeholder="¿Tienes algún requerimiento especial para tu stand?"
+                placeholder=""
                 rows={4}
                 style={{ width: '100%', padding: '16px 20px', borderRadius: '8px', border: '1px solid #ccc', fontSize: '1.05rem', boxSizing: 'border-box', backgroundColor: '#f9f9f9', resize: 'vertical' }}
               ></textarea>
