@@ -59,3 +59,42 @@ export const receiveWebhook = async (req: Request, res: Response): Promise<void>
     res.status(500).send('Webhook processing error');
   }
 };
+
+// ========================================================
+// ENDPOINT SOLO PARA DESARROLLO (Testing de Webhooks)
+// Permite simular que Mercado Pago nos envió un aviso
+// ========================================================
+export const simulateWebhook = async (req: Request, res: Response): Promise<void> => {
+  try {
+    const { compraId, estado } = req.body; // 'approved', 'rejected', 'cancelled'
+
+    if (!compraId || !estado) {
+      res.status(400).json({ message: 'Faltan parámetros requeridos: compraId y estado' });
+      return;
+    }
+
+    // 1. Actualizar el estado de la compra con un ID falso
+    await pool.query(
+      'UPDATE compras_stands SET estado = ?, pago_id = ? WHERE id = ?',
+      [estado, 'SIMULACION-' + Date.now(), compraId]
+    );
+
+    // 2. Aplicar lógica de negocio
+    if (estado === 'approved') {
+      const [rows] = await pool.query<any>('SELECT usuario_id FROM compras_stands WHERE id = ?', [compraId]);
+      if (rows.length > 0) {
+        await pool.query('UPDATE usuarios SET rol = ? WHERE id = ?', ['expositor', rows[0].usuario_id]);
+      }
+    } else if (estado === 'rejected' || estado === 'cancelled') {
+      const [rows] = await pool.query<any>('SELECT stand_id FROM compras_stands WHERE id = ?', [compraId]);
+      if (rows.length > 0) {
+         await pool.query('UPDATE stands SET stock_disponible = stock_disponible + 1 WHERE id = ?', [rows[0].stand_id]);
+      }
+    }
+
+    res.status(200).json({ message: `Webhook simulado procesado correctamente. Nueva orden #${compraId} -> ${estado}` });
+  } catch (error) {
+    console.error('Error en el simulador de Webhooks:', error);
+    res.status(500).json({ message: 'Error interno simulando webhook' });
+  }
+};

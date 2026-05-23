@@ -54,6 +54,9 @@ export const createPreference = async (req: AuthRequest, res: Response): Promise
 
     const compraId = insertResult.insertId;
 
+    // Detectar si el usuario viene de un Dev Tunnel o de localhost
+    const frontendUrl = req.headers.origin || 'http://localhost:5173';
+
     // 4. Configurar la Preferencia de MercadoPago
     const preference = new Preference(client);
     
@@ -74,10 +77,11 @@ export const createPreference = async (req: AuthRequest, res: Response): Promise
           email: userEmail
         },
         back_urls: {
-          success: 'http://localhost:5173/pagos/exito',
-          failure: 'http://localhost:5173/pagos/fallo',
-          pending: 'http://localhost:5173/pagos/pendiente'
+          success: `${frontendUrl}/pagos/exito`,
+          failure: `${frontendUrl}/pagos/fallo`,
+          pending: `${frontendUrl}/pagos/pendiente`
         },
+        auto_return: 'approved',
         external_reference: compraId.toString(),
         expires: true,
         expiration_date_to: new Date(Date.now() + 15 * 60000).toISOString() // El link expira en 15 minutos

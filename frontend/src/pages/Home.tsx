@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import imgTextil1 from '../assets/textil.jpg';
 import imgTextil2 from '../assets/textil2.jpg';
 import imgTextil3 from '../assets/textil3.jpg';
@@ -10,6 +11,8 @@ import imgGallery3 from '../assets/textil1-3.jpg';
 import imgGallery4 from '../assets/textil1-4.jpg';
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+  const isLoggedIn = !!localStorage.getItem('token');
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [galleryIndex, setGalleryIndex] = React.useState(0);
 
@@ -86,33 +89,65 @@ const Home: React.FC = () => {
             26 y 27 de Septiembre · Centro de Convenciones Concordia
           </p>
           
-          <a 
-            href="https://www.instagram.com/expotextilgrafica2026/" 
-            target="_blank"
-            rel="noreferrer"
-            style={{
-              display: 'inline-block',
-              backgroundColor: '#ff0000',
-              color: '#ffffff',
-              padding: '1rem 2.5rem',
-              borderRadius: '30px',
-              textDecoration: 'none',
-              fontWeight: 'bold',
-              fontSize: '1.1rem',
-              boxShadow: '0 4px 15px rgba(255, 0, 0, 0.4)',
-              transition: 'all 0.3s ease',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = '#cc0000';
-              e.currentTarget.style.transform = 'translateY(-2px)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = '#ff0000';
-              e.currentTarget.style.transform = 'translateY(0)';
-            }}
-          >
-            Instagram oficial
-          </a>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+            <button 
+              onClick={() => navigate(isLoggedIn ? '/pagos' : '/registro')}
+              style={{
+                backgroundColor: '#ff0000',
+                color: '#ffffff',
+                padding: '1.2rem 3rem',
+                borderRadius: '30px',
+                border: 'none',
+                cursor: 'pointer',
+                fontWeight: '900',
+                fontSize: '1.2rem',
+                boxShadow: '0 4px 20px rgba(255, 0, 0, 0.5)',
+                transition: 'all 0.3s ease',
+                textTransform: 'uppercase',
+                letterSpacing: '1px'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#cc0000';
+                e.currentTarget.style.transform = 'translateY(-3px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#ff0000';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
+              ¡Adquirí tu Stand Ahora!
+            </button>
+            
+            <a 
+              href="https://www.instagram.com/expotextilgrafica2026/" 
+              target="_blank"
+              rel="noreferrer"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: 'transparent',
+                color: '#ffffff',
+                padding: '1.2rem 2.5rem',
+                borderRadius: '30px',
+                textDecoration: 'none',
+                fontWeight: 'bold',
+                fontSize: '1.1rem',
+                border: '2px solid rgba(255,255,255,0.3)',
+                transition: 'all 0.3s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                e.currentTarget.style.borderColor = '#ffffff';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'transparent';
+                e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)';
+              }}
+            >
+              Ver Instagram
+            </a>
+          </div>
         </div>
 
         {/* Lado Derecho: Diapositiva de Fotos */}
@@ -194,6 +229,65 @@ La expo es una oportunidad ideal para emprendedores, marcas, talleres, diseñado
               Los rubros que participan en la Expo Textil, Gráfica y Creativa Concordia 2026 incluyen:
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Banner de Conversión / Call to Action */}
+      <section style={{ 
+        backgroundColor: '#e60000', 
+        padding: '5rem 2rem', 
+        color: 'white',
+        textAlign: 'center'
+      }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <h2 style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '1.5rem', textTransform: 'uppercase' }}>
+            ¿Listo para llevar tu marca al siguiente nivel?
+          </h2>
+          <p style={{ fontSize: '1.2rem', marginBottom: '3rem', opacity: 0.9 }}>
+            Asegura tu lugar. Los cupos son limitados y se asignan por orden de llegada.
+          </p>
+          
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', marginBottom: '3rem' }}>
+            <div style={{ flex: '1', minWidth: '200px', backgroundColor: 'rgba(0,0,0,0.1)', padding: '1.5rem', borderRadius: '15px' }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '0.5rem' }}>1</div>
+              <h3 style={{ fontSize: '1.2rem', margin: 0 }}>Crea tu Cuenta</h3>
+            </div>
+            <div style={{ flex: '1', minWidth: '200px', backgroundColor: 'rgba(0,0,0,0.1)', padding: '1.5rem', borderRadius: '15px' }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '0.5rem' }}>2</div>
+              <h3 style={{ fontSize: '1.2rem', margin: 0 }}>Elegí tu Stand</h3>
+            </div>
+            <div style={{ flex: '1', minWidth: '200px', backgroundColor: 'rgba(0,0,0,0.1)', padding: '1.5rem', borderRadius: '15px' }}>
+              <div style={{ fontSize: '2.5rem', fontWeight: '900', marginBottom: '0.5rem' }}>3</div>
+              <h3 style={{ fontSize: '1.2rem', margin: 0 }}>Sé parte del Éxito</h3>
+            </div>
+          </div>
+
+          <button 
+            onClick={() => navigate(isLoggedIn ? '/pagos' : '/registro')}
+            style={{
+              backgroundColor: '#ffffff',
+              color: '#e60000',
+              padding: '1.2rem 4rem',
+              borderRadius: '30px',
+              border: 'none',
+              cursor: 'pointer',
+              fontWeight: '900',
+              fontSize: '1.3rem',
+              boxShadow: '0 10px 30px rgba(0, 0, 0, 0.2)',
+              transition: 'all 0.3s ease',
+              textTransform: 'uppercase'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = 'translateY(-3px)';
+              e.currentTarget.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = 'translateY(0)';
+              e.currentTarget.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+            }}
+          >
+            {isLoggedIn ? 'IR A LA TIENDA DE STANDS' : 'REGISTRARME AHORA'}
+          </button>
         </div>
       </section>
 

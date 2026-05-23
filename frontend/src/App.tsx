@@ -6,6 +6,8 @@ import Home from './pages/Home';
 import Registro from './pages/Registro';
 import Login from './pages/Login';
 import PagosMockup from './pages/PagosMockup';
+import PaymentStatus from './pages/PaymentStatus';
+import ProtectedRoute from './components/ProtectedRoute';
 
 const App: React.FC = () => {
   return (
@@ -26,12 +28,17 @@ const App: React.FC = () => {
             <Route path="/registro" element={<Registro />} />
             <Route path="/login" element={<Login />} />
             <Route path="/pagos" element={
-              <div style={{ backgroundColor: '#fafafa', color: '#000', minHeight: 'calc(100vh - 80px)' }}>
-                <div style={{ maxWidth: '1200px', margin: '0 auto', boxShadow: '0 0 15px rgba(0,0,0,0.05)' }}>
-                  <PagosMockup />
+              <ProtectedRoute>
+                <div style={{ backgroundColor: '#fafafa', color: '#000', minHeight: 'calc(100vh - 80px)' }}>
+                  <div style={{ maxWidth: '1200px', margin: '0 auto', boxShadow: '0 0 15px rgba(0,0,0,0.05)' }}>
+                    <PagosMockup />
+                  </div>
                 </div>
-              </div>
+              </ProtectedRoute>
             } />
+            <Route path="/pagos/exito" element={<ProtectedRoute><PaymentStatus /></ProtectedRoute>} />
+            <Route path="/pagos/fallo" element={<ProtectedRoute><PaymentStatus /></ProtectedRoute>} />
+            <Route path="/pagos/pendiente" element={<ProtectedRoute><PaymentStatus /></ProtectedRoute>} />
           </Routes>
         </div>
         

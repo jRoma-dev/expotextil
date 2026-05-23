@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 
 const Registro: React.FC = () => {
   const [registroExitoso, setRegistroExitoso] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -75,7 +75,7 @@ const Registro: React.FC = () => {
               Tu cuenta ha sido creada y has iniciado sesión automáticamente.
             </p>
             <button
-              onClick={() => navigate('/')} 
+              onClick={() => { window.location.href = '/'; }} 
               style={{
                 backgroundColor: '#e60000', color: 'white', border: 'none',
                 padding: '12px 24px', borderRadius: '8px', fontWeight: 'bold', cursor: 'pointer', fontSize: '1.1rem'

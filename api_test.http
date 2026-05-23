@@ -1,0 +1,53 @@
+### ==========================================
+### LABORATORIO DE PRUEBAS - EXPO TEXTIL 2026
+### ==========================================
+### Instala la extensión "REST Client" en VSCode para usar este archivo.
+### Simplemente haz clic en "Send Request" arriba de cada bloque.
+
+@baseUrl = http://localhost:3000/api
+
+### 1. HEALTH CHECK - Verificar que el servidor está vivo
+GET {{baseUrl}}/health
+
+### ==========================================
+### STOCKS Y PAGOS
+### ==========================================
+
+### 2. VER INVENTARIO REAL DE STANDS
+# Útil para comprobar el stock sin tener que abrir el frontend ni la Base de Datos.
+GET {{baseUrl}}/payments/stands
+
+
+### ==========================================
+### SIMULADOR DE MERCADO PAGO (WEBHOOKS)
+### ==========================================
+### IMPORTANTE: Para probar esto, primero debes crear un intento de compra en la página web, 
+### luego abrir phpMyAdmin, buscar en la tabla "compras_stands" el "id" de tu compra pendiente,
+### y reemplazar el número "1" aquí abajo por tu ID real.
+
+### 3. SIMULAR PAGO APROBADO (Sube al usuario a Expositor)
+POST {{baseUrl}}/payments/simulate-webhook
+Content-Type: application/json
+
+{
+    "compraId": 20,
+    "estado": "approved"
+}
+
+### 4. SIMULAR PAGO RECHAZADO (Devuelve el cupo al stock)
+POST {{baseUrl}}/payments/simulate-webhook
+Content-Type: application/json
+
+{
+    "compraId": 14,
+    "estado": "rejected"
+}
+
+### 5. SIMULAR PAGO EXPIRADO (Devuelve el cupo al stock)
+POST {{baseUrl}}/payments/simulate-webhook
+Content-Type: application/json
+
+{
+    "compraId": 1,
+    "estado": "cancelled"
+}

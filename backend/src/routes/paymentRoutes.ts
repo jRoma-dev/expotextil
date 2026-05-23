@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { createPreference, getStands } from '../controllers/paymentController';
-import { receiveWebhook } from '../controllers/webhookController';
+import { receiveWebhook, simulateWebhook } from '../controllers/webhookController';
 import { verifyToken } from '../middlewares/authMiddleware';
 
 const router = Router();
@@ -10,8 +10,10 @@ const router = Router();
 router.post('/create-preference', verifyToken, createPreference);
 
 // 2. Endpoint público (Webhook): MercadoPago lo llamará cuando el pago se apruebe/rechace
-// ¡IMPORTANTE! Este endpoint NO usa verifyToken porque es MercadoPago quien lo llama, no el usuario.
 router.post('/webhook', receiveWebhook);
+
+// 2.5 Endpoint de Desarrollo (Simulador): Para probar aprobaciones sin internet
+router.post('/simulate-webhook', simulateWebhook);
 
 // 3. Endpoint público para obtener el inventario de stands (Para la Tienda)
 router.get('/stands', getStands);

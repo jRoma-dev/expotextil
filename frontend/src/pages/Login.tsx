@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -35,12 +35,8 @@ const Login: React.FC = () => {
       localStorage.setItem('token', data.token);
       localStorage.setItem('rol', data.rol);
 
-      // Redirigir a la página principal
-      navigate('/');
-      
-      // Forzamos la recarga de la ventana para que el Header reconozca la sesión iniciada
-      // (En el futuro, esto se mejorará usando React Context para el estado global)
-      window.location.reload();
+      // Redirigir a la página principal forzando recarga para que el Header actualice
+      window.location.href = '/';
     } catch (err: any) {
       setError(err.message);
     } finally {
