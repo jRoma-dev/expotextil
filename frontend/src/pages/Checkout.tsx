@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { API_URL } from '../config';
+
 
 // Interfaz para los stands que vienen de la Base de Datos
 interface Stand {
@@ -21,7 +23,7 @@ const Checkout: React.FC = () => {
   useEffect(() => {
     const fetchStands = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/payments/stands');
+        const response = await fetch(`${API_URL}/api/payments/stands`);
         if (response.ok) {
           const data = await response.json();
           setStands(data);
@@ -55,7 +57,7 @@ const Checkout: React.FC = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:3000/api/payments/create-preference', {
+      const response = await fetch(`${API_URL}/api/payments/create-preference`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

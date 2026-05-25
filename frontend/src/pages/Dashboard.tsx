@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_URL } from '../config';
+
 
 interface Purchase {
   compra_id: number;
@@ -30,7 +32,7 @@ const Dashboard: React.FC = () => {
       }
 
       try {
-        const response = await fetch('http://localhost:3000/api/users/purchases', {
+        const response = await fetch(`${API_URL}/api/users/purchases`, {
           headers: {
             'Authorization': `Bearer ${token}`
           }
@@ -60,7 +62,7 @@ const Dashboard: React.FC = () => {
         return;
       }
 
-      const response = await fetch('http://localhost:3000/api/payments/pay-balance', {
+      const response = await fetch(`${API_URL}/api/payments/pay-balance`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
